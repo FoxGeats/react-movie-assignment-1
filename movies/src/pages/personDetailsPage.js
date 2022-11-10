@@ -1,18 +1,30 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
-import MovieDetails from "../components/movieDetails/";
-import PageTemplate from "../components/templateMoviePage";
+import PersonDetails from "../components/personDetails/";
+import PageTemplate from "../components/templatePeoplePage";
 //import useMovie from "../hooks/useMovie";
-import { getMovie } from '../api/tmdb-api'
+import { getPerson } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
+import KnownMovies from "../components/knownMovies";
+import { useLocation } from "react-router-dom";
+import { getPeople } from "../api/tmdb-api";
+import { useQueries } from "react-query";
 
-const personPage = (props) => {
+const PersonDetailsPage = (props) => {
   const { id } = useParams();
-  const { data: movie, error, isLoading, isError } = useQuery(
-    ["movie", { id: id }],
-    getMovie
+
+  const location = useLocation()
+
+  const { data: person, error, isLoading, isError } = useQuery(
+    ["persond", { id: id }],
+    getPerson
   );
+
+
+   
+  
+console.log(person)
 
   if (isLoading) {
     return <Spinner />;
@@ -21,13 +33,16 @@ const personPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
+const people=location.state;
+console.log('test',people)
 
   return (
     <>
-      {movie ? (
+      {person ? (
         <>
-          <PageTemplate movie={movie}>
-            <MovieDetails movie={movie} />
+          <PageTemplate person={person}>
+            <PersonDetails person={person} />
+           <KnownMovies person={people}/>
           </PageTemplate>
         </>
       ) : (
@@ -37,4 +52,5 @@ const personPage = (props) => {
   );
 };
 
-export default personPage;
+
+export default PersonDetailsPage;

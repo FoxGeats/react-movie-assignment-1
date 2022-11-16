@@ -63,11 +63,12 @@ const change=()=>{
       <CardActions disableSpacing>
       {/* <Link to = {{ pathname: `/persons/${person.id}` , state: person.known_for }}> */}
         {/* <Link to={`/persons/${person.id}`}> */}
-          <Button variant="outlined" size="medium" color="primary" onClick={change}>
+          <Button variant="outlined" size="medium" color="primary"  onClick={change}>
             More Info ...
 
           </Button>
         {/* </Link> */}
+       
       </CardActions>
     </Card>
   )

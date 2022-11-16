@@ -42,11 +42,16 @@ console.log('test',people)
         <>
           <PageTemplate person={person}>
             <PersonDetails person={person} />
-           <KnownMovies person={people}/>
+            {people.knownFor?(
+               <KnownMovies person={people}/>
+            ):
+            (<p>Waiting for more information...</p>)
+            }
+          
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for movie details</p>
+        <p>Waiting for more details</p>
       )}
     </>
   );

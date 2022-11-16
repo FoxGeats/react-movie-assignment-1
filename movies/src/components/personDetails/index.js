@@ -23,7 +23,7 @@ const root = {
 const chip = { margin: 0.5 };
 
 const PersonDetails = ({ person }) => {  // Don't miss this!
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  
   return (
     <>
       <Typography variant="h3" component="h3">
@@ -40,35 +40,7 @@ const PersonDetails = ({ person }) => {  // Don't miss this!
       <Typography variant="h6" component="p">
          Known For
       </Typography>
-     <Grid>
-         {/* <KnownMovies person={person} /> */}
-      </Grid>
-      <Paper 
-        component="ul" 
-        sx={{...root}}
-      >
-        <li>
-          <Chip label="diyihang" sx={{...chip}} color="primary" />
-        </li>
-      
-      </Paper>
-      <Paper component="ul" sx={{...root}}>
-        <Chip icon={<AccessTimeIcon />} label={`dierhang`} />
-        
-      </Paper>
-
-
-<Paper component="ul" sx={{...root}}>
-<li>
-          <Chip label="di 3 hang" sx={{...chip}} color="primary" />
-        </li>
-        {/* {movie.production_countries.map((g) => (
-          <li key={g.name}>
-            <Chip label={g.name} sx={{...chip}} />
-          </li>
-        ))} */}
-</Paper>
-
+     
       
 
       </>

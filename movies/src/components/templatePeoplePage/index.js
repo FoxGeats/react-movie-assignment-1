@@ -27,8 +27,8 @@ const TemplatePeoplePage = ({ person, children }) => {
     <>
       {/* <MovieHeader people={person} /> */}
 
-      <Grid container spacing={5} sx={{ padding: "15px" }}>
-        <Grid item xs={3}>
+      <Grid container spacing={5} sx={{ padding: "15px" }} >
+        <Grid item xs={3} >
           <div sx={{
             display: "flex",
             flexWrap: "wrap",
@@ -83,7 +83,7 @@ const TemplatePeoplePage = ({ person, children }) => {
               Also Known As
             </Typography>
            {person.also_known_as.map((p)=>(
-            <Typography>
+            <Typography key={p}>
              {p}
             </Typography>
            ) )} 

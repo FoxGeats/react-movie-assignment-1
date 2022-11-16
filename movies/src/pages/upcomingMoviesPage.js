@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { getMovieUpcoming } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToPlayListIcon from '../components/cardIcons/addToPalylist'
-
+import MyPagination from "../components/myPagination";
 const UpcomingMoviesPage = (props) => {
-
-  const {  data, error, isLoading, isError }  = useQuery('upcoming', getMovieUpcoming)
+  const [page, setPage] = useState(1);
+  const {  data, error, isLoading, isError }  = useQuery(['upcoming', {page}], getMovieUpcoming)
 
   if (isLoading) {
     return <Spinner />
@@ -17,13 +17,14 @@ const UpcomingMoviesPage = (props) => {
     return <h1>{error.message}</h1>
   }  
   const movies = data.results;
-
+  const totalPages = data.total_pages;
   // Redundant, but necessary to avoid app crashing.
   const favorites = movies.filter(m => m.favorite)
   localStorage.setItem('favorites', JSON.stringify(favorites))
   const addToPalylist = (movieId) => true 
 
   return (
+    <>
     <PageTemplate
     title="Upcoming Movies"
     movies={movies}
@@ -31,6 +32,8 @@ const UpcomingMoviesPage = (props) => {
       return <AddToPlayListIcon movie={movie} />
     }}
   />
+  <MyPagination page={Number(page)} setPage={setPage} totalPages={Number(totalPages)}/>
+  </>
   );
 };
 export default UpcomingMoviesPage;

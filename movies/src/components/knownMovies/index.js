@@ -5,10 +5,13 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
-
+import { Link } from "react-router-dom";
+import { experimentalStyled } from '@mui/material';
 export default function KnownForMovieList(person) {
   return (
+   
     //console.log(person.person);
+  
     <ImageList 
     sx={{ 
         //  width: 500, 
@@ -29,21 +32,28 @@ export default function KnownForMovieList(person) {
             alt={know.title}
             loading="lazy"
           />
+            <Link to={`/movies/${know.id}`}>
           <ImageListItemBar
+          
             title={know.title}
             
             actionIcon={
+            
               <IconButton
                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                 aria-label={`info about ${know.title}`}
+               
               >
                 <InfoIcon />
               </IconButton>
+              
             }
           />
+          </Link>
         </ImageListItem>
       ))}
     </ImageList>
+    
   );
 }
 

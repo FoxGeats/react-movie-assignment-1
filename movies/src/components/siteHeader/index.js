@@ -34,11 +34,11 @@ const SiteHeader = ({ history }) => {
     { label: "TopRated", path: "/movies/topRated" },
   ];
   const menuUserOptions = [
-{ label: "Log out", path: "/" },
+{ label: "Log out", path: "/pages/logout" },
 { label: "Log in", path: "/login" },
   ]
   const handleMenuSelect = (pageURL) => {
-    if (pageURL === "/"){
+    if (pageURL === "/pages/logout"){
       logout()
     }
     navigate(pageURL, { replace: true });

@@ -19,6 +19,7 @@ import ResetPage from "./pages/resetPage";
 import TVPage from "./pages/TVPage";
 import TVDetailPage from "./pages/TVDetailPage";
 import TopRatedMoviesPage from "./pages/topRatedMoviesPage"
+import LogoutPage from "./pages/logoutPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -50,6 +51,7 @@ const App = () => {
       <Route exact path="/reset" element={<ResetPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/movies/topRated" element={<TopRatedMoviesPage />} />
+      <Route path="/pages/logout" element={<LogoutPage />} />
     </Routes>
     </MoviesContextProvider>
   </BrowserRouter>

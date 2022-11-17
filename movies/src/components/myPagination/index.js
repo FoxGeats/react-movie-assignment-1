@@ -10,18 +10,37 @@ const myPagination=({page,setPage,totalPages})=>{
 return(
 
 
-
+    <div style={{    
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      
+        
+    }}
+      >
+        <div style={{
+      
+          padding: "10px 80px",
+         
+          width: "100%",
+          
+        }}>
 
   
    
    
-      <Pagination  variant="outlined" color="primary"  
+      <Pagination  color="primary"  
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }} 
       page={page}
       onChange={handleChange}
       count={totalPages}
       />
    
-    
+   </div>
+    </div>
   );
 }
   export default myPagination;

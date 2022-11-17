@@ -1,5 +1,5 @@
 //import React, { useState, useEffect } from "react";
-import MovieHeader from "../headerMovie";
+import TVHeader from "../headerTV";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -24,7 +24,7 @@ const TemplateTVPage = ({ TV, children }) => {
 
   return (
     <>
-      <MovieHeader movie={TV} />
+      <TVHeader movie={TV} />
 
       <Grid container spacing={5} sx={{ padding: "15px" }}>
         <Grid item xs={3}>

@@ -42,10 +42,13 @@ console.log('test',people)
         <>
           <PageTemplate person={person}>
             <PersonDetails person={person} />
-            {people.knownFor?(
-               <KnownMovies person={people}/>
+        
+            {people.known_for.length>0?(
+              <KnownMovies person={people}/>
             ):
-            (<p>Waiting for more information...</p>)
+            (
+             <p>Waiting for more information...</p>
+            )
             }
           
           </PageTemplate>

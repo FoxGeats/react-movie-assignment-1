@@ -16,7 +16,8 @@ import PersonDetailsPage from './pages/personDetailsPage'
 import LoginPage from "./pages/loginPage";
 import RegisterPage from "./pages/registerPage";
 import ResetPage from "./pages/resetPage";
-
+import TVPage from "./pages/TVPage";
+import TVDetailPage from "./pages/TVDetailPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -42,7 +43,8 @@ const App = () => {
       <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
       <Route path="/movies/people" element={<PeoplePage />} />
       <Route path="/persons/:id" element={<PersonDetailsPage />} />
-    
+      <Route path="/TV/popular" element={<TVPage />} />
+      <Route path="/TV/:id" element={<TVDetailPage />} />
       <Route exact path="/register" element={<RegisterPage />} />
       <Route exact path="/reset" element={<ResetPage />} />
       <Route path="/login" element={<LoginPage />} />

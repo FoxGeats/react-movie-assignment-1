@@ -13,6 +13,9 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import PeoplePage from './pages/peoplePage'
 import PersonDetailsPage from './pages/personDetailsPage'
+import LoginPage from "./pages/loginPage";
+import RegisterPage from "./pages/registerPage";
+import ResetPage from "./pages/resetPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,6 +42,10 @@ const App = () => {
       <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
       <Route path="/movies/people" element={<PeoplePage />} />
       <Route path="/persons/:id" element={<PersonDetailsPage />} />
+    
+      <Route exact path="/register" element={<RegisterPage />} />
+      <Route exact path="/reset" element={<ResetPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
     </MoviesContextProvider>
   </BrowserRouter>

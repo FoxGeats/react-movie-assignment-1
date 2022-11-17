@@ -11,7 +11,9 @@ import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
+import { logout } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db } from "../../firebase";
 const Offset = styled('div')(({ theme }) => theme.mixins.toolbar);
 
 const SiteHeader = ({ history }) => {
@@ -22,15 +24,22 @@ const SiteHeader = ({ history }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navigate = useNavigate();
-
+  const [user, loading, error] = useAuthState(auth);
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "People", path: "/movies/people" },
+    
   ];
-
+  const menuUserOptions = [
+{ label: "Log out", path: "/" },
+{ label: "Log in", path: "/login" },
+  ]
   const handleMenuSelect = (pageURL) => {
+    if (pageURL === "/"){
+      logout()
+    }
     navigate(pageURL, { replace: true });
   };
 
@@ -38,10 +47,11 @@ const SiteHeader = ({ history }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  
+  console.log(user)
 
   return (
     <>
+    
       <AppBar position="fixed" color="secondary">
         <Toolbar>
           <Typography variant="h4" sx={{ flexGrow: 1 }}>
@@ -50,6 +60,15 @@ const SiteHeader = ({ history }) => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             All you ever wanted to know about Movies!
           </Typography>
+          {user==null?(
+            <Typography variant="p" sx={{ flexGrow: 1 }}>
+            please log in
+          </Typography>
+          ):
+          ( <Typography variant="p" sx={{ flexGrow: 1 }} >
+            Hello! {user.email}
+          </Typography>)
+}
             {isMobile ? (
               <>
                 <IconButton
@@ -84,6 +103,25 @@ const SiteHeader = ({ history }) => {
                       {opt.label}
                     </MenuItem>
                   ))}
+
+                   {user==null?(
+                  <MenuItem
+                  key={menuUserOptions[1].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[1].path)}
+                >
+                        {menuUserOptions[1].label}
+                  </MenuItem>
+                ):( <MenuItem
+                  key={menuUserOptions[0].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[0].path)}
+                >
+                   {menuUserOptions[0].label}
+                   </MenuItem>
+                  )
+                
+                }
                 </Menu>
               </>
             ) : (
@@ -97,6 +135,25 @@ const SiteHeader = ({ history }) => {
                     {opt.label}
                   </Button>
                 ))}
+                  {user==null?(
+                  <Button
+                  key={menuUserOptions[1].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[1].path)}
+                >
+                        {menuUserOptions[1].label}
+                  </Button>
+                ):( <Button
+                  key={menuUserOptions[0].label}
+                  color="inherit"
+                  onClick={() => handleMenuSelect(menuUserOptions[0].path)}
+                >
+                   {menuUserOptions[0].label}
+                   </Button>
+                  )
+                
+                }
+               
               </>
             )}
         </Toolbar>

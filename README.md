@@ -19,11 +19,15 @@ Users can log in with their email address and password authenticated by firebase
 
 ## Setup requirements.
 + First navigate to the movies folder
+
 `cd movies`
+
 + Create a .env file in src and include the following.
+
 `REACT_APP_TMDB_KEY=<YOUR_TMDB_API_KEY>`
 
 `FAST_REFRESH=false`
+
 ## API endpoints.
 
 + Popular actors - /movies/people

@@ -6,16 +6,14 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import { Link } from "react-router-dom";
-import { experimentalStyled } from '@mui/material';
 export default function KnownForMovieList(person) {
   return (
    
-    //console.log(person.person);
+    
   
     <ImageList 
     sx={{ 
-        //  width: 500, 
-        //  height: 450 ,
+       
         gridAutoFlow: "column",
         gridTemplateColumns: "repeat(auto-fit, minmax(160px,1fr)) !important",
         gridAutoColumns: "minmax(160px, 1fr)"

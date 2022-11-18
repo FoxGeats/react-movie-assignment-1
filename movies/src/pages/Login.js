@@ -36,26 +36,18 @@ export default function SignInSide() {
 
     const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) {
       <Spinner />
       return;
     }
-    //if (user) navigate("/movies/home");
     if (user) navigate("/");
-  }, [user, loading]);
+  }, [user, loading,navigate]);
 
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     const data = new FormData(event.currentTarget);
-//     console.log({
-//       email: data.get('email'),
-//       password: data.get('password'),
-//     });
-//   };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -92,7 +84,7 @@ export default function SignInSide() {
               Sign in
             </Typography>
             <Box component="form" noValidate sx={{ mt: 1 }}> 
-            {/* onSubmit={handleSubmit} */}
+           
               <TextField
                 margin="normal"
                 required
@@ -122,13 +114,22 @@ export default function SignInSide() {
                 label="Remember me"
               />
               <Button
-                // type="submit"
+               
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
                 onClick={() => logInWithEmailAndPassword(email, password)}
               >
                 Sign In
+              </Button>
+              <Button
+                
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={signInWithGoogle}
+              >
+               Login with Google
               </Button>
               <Grid container>
                 <Grid item xs>

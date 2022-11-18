@@ -13,7 +13,6 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import PeoplePage from './pages/peoplePage'
 import PersonDetailsPage from './pages/personDetailsPage'
-import LoginPage from "./pages/loginPage";
 import RegisterPage from "./pages/registerPage";
 import ResetPage from "./pages/resetPage";
 import TVPage from "./pages/TVPage";
@@ -50,7 +49,6 @@ const App = () => {
       <Route path="/TV/:id" element={<TVDetailPage />} />
       <Route exact path="/register" element={<RegisterPage />} />
       <Route exact path="/reset" element={<ResetPage />} />
-      <Route path="/login" element={<LoginPage />} />
       <Route path="/movies/topRated" element={<TopRatedMoviesPage />} />
       <Route path="/pages/logout" element={<LogoutPage />} />
       <Route path="/pages/login" element={<Login />} />

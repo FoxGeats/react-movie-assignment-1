@@ -1,21 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../headerMovieList";
-import FilterCard from "../filterMoviesCard";
 import PersonList from "../personList";
 import Grid from "@mui/material/Grid";
 
 function PersonListPageTemplate({ persons, title, action }) {
-  // const [nameFilter, setNameFilter] = useState("");
-  // const [genreFilter, setGenreFilter] = useState("0");
-  // const genreId = Number(genreFilter);
-
-  // let displayedPersons = persons
-  //   .filter((m) => {
-  //     return m.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
-  //   })
-  //   .filter((m) => {
-  //     return genreId > 0 ? m.genre_ids.includes(genreId) : true;
-  //   });
 
   let displayedPersons = persons
 

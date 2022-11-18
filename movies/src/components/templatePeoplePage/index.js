@@ -1,5 +1,3 @@
-//import React, { useState, useEffect } from "react";
-import MovieHeader from "../headerMovie";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
@@ -25,7 +23,7 @@ const TemplatePeoplePage = ({ person, children }) => {
 
   return (
     <>
-      {/* <MovieHeader people={person} /> */}
+      
 
       <Grid container spacing={5} sx={{ padding: "15px" }} >
         <Grid item xs={3} >
@@ -65,7 +63,7 @@ const TemplatePeoplePage = ({ person, children }) => {
               Gender
             </Typography>
             <Typography >
-            {(person.gender=="1" ? "Female":"Male")}
+            {(person.gender===1 ? "Female":"Male")}
             </Typography>
             <Typography variant="h6">
              Birthday

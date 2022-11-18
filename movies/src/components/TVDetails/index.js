@@ -1,12 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
-
 import StarRate from "@mui/icons-material/StarRate";
-import NavigationIcon from "@mui/icons-material/Navigation";
-import Drawer from "@mui/material/Drawer";
-//import TVReviews from "../TVReviews"
-import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 
 
@@ -20,8 +15,8 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const TVDetails = ({ TV }) => {  // Don't miss this!
-  const [drawerOpen, setDrawerOpen] = useState(false);
+const TVDetails = ({ TV }) => {  
+  
 
   return (
     <>
@@ -70,22 +65,7 @@ const TVDetails = ({ TV }) => {  // Don't miss this!
           </li>
            ))}
       </Paper>
-      {/* <Fab
-        color="secondary"
-        variant="extended"
-        onClick={() =>setDrawerOpen(true)}
-        sx={{
-          position: 'fixed',
-          bottom: '1em',
-          right: '1em'
-        }}
-      >
-        <NavigationIcon />
-        Reviews
-      </Fab>
-      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <TVReviews TV={TV} />
-      </Drawer> */}
+     
       </>
   );
 };

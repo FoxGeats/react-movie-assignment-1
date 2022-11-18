@@ -18,10 +18,6 @@ const UpcomingMoviesPage = (props) => {
   }  
   const movies = data.results;
   const totalPages = data.total_pages;
-  // Redundant, but necessary to avoid app crashing.
-  const favorites = movies.filter(m => m.favorite)
-  localStorage.setItem('favorites', JSON.stringify(favorites))
-  const addToPalylist = (movieId) => true 
 
   return (
     <>

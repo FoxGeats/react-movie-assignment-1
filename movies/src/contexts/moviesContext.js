@@ -39,7 +39,7 @@ const MoviesContextProvider = (props) => {
     }
     setMustWatch(newPlayList)
   };
-console.log(mustWatch);
+
 
   return (
     <MoviesContext.Provider

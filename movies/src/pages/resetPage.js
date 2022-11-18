@@ -3,17 +3,15 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { auth, sendPasswordReset } from "../firebase";
-//import "../css/Reset.css";
 function Reset() {
-     const [user, loading, error] = useAuthState(auth);
+     const [user, loading] = useAuthState(auth);
   const [email, setEmail] = useState("");
  
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;
-    //if (user) navigate("/movies/home");
     if (user) navigate("/");
-  }, [user, loading]);
+  }, [user, loading,navigate]);
   return (
     <div className="reset">
       <div className="reset__container">

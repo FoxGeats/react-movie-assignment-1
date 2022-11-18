@@ -6,12 +6,11 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase";
-//import "../css/Register.css";
 function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
   const register = () => {
     if (!name) alert("Please enter name");
@@ -19,9 +18,8 @@ function RegisterPage() {
   };
   useEffect(() => {
     if (loading) return;
-   // if (user) navigate("/movies/home");
    if (user) navigate("/");
-  }, [user, loading]);
+  }, [user, loading,navigate]);
   return (
     <div className="register">
       <div className="register__container">

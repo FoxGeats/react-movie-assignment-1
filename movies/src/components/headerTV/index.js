@@ -32,7 +32,7 @@ const TVHeader = (props) => {
           <HomeIcon color="primary" />
         </a>
         <br />
-        {movie.tagline==""?(null):(
+        {movie.tagline===""?(null):(
         <span sx={{ fontSize: "1.5rem" }}>{`"${movie.tagline}"`} </span>
         )}
         

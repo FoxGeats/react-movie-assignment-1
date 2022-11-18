@@ -32,6 +32,7 @@ const UpcomingMoviesPage = (props) => {
       return <AddToPlayListIcon movie={movie} />
     }}
   />
+  
   <MyPagination page={Number(page)} setPage={setPage} totalPages={Number(totalPages)}/>
   </>
   );

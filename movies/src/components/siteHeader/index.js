@@ -35,7 +35,7 @@ const SiteHeader = ({ history }) => {
   ];
   const menuUserOptions = [
 { label: "Log out", path: "/pages/logout" },
-{ label: "Log in", path: "/login" },
+{ label: "Log in", path: "/pages/login" },
   ]
   const handleMenuSelect = (pageURL) => {
     if (pageURL === "/pages/logout"){
